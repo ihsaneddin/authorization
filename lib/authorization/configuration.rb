@@ -140,41 +140,41 @@ module Authorization
           yield self
         end
 
-        def current_user context = nil
+        def current_user context = nil, &block
           if block_given?
-            @@current_user_proc = Proc.new
+            @@current_user_proc = block
           else
             @@current_user_proc.call(context)
           end
         end
 
-        def can_be_read_by current_user = nil, role = nil, context = nil
+        def can_be_read_by current_user = nil, role = nil, context = nil, &block
           if block_given?
-            @@can_be_read_by_proc = Proc.new
+            @@can_be_read_by_proc = block
           else
             @@can_be_read_by_proc.call(current_user, role, context)
           end
         end
 
-        def can_be_created_by current_user = nil, role = nil, context = nil
+        def can_be_created_by current_user = nil, role = nil, context = nil, &block
           if block_given?
-            @@can_be_created_by_proc = Proc.new
+            @@can_be_created_by_proc = block
           else
             @@can_be_created_by_proc.call(current_user, role, context)
           end
         end
 
-        def can_be_edited_by current_user = nil, role = nil, context = nil
+        def can_be_edited_by current_user = nil, role = nil, context = nil, &block
           if block_given?
-            @@can_be_edited_by_proc = Proc.new
+            @@can_be_edited_by_proc = block
           else
             @@can_be_edited_by_proc.call(current_user, role, context)
           end
         end
 
-        def can_be_deleted_by current_user = nil, role = nil, context = nil
+        def can_be_deleted_by current_user = nil, role = nil, context = nil, &block
           if block_given?
-            @@can_be_deleted_by_proc = Proc.new
+            @@can_be_deleted_by_proc = block
           else
             @@can_be_deleted_by_proc.call(current_user, role, context)
           end

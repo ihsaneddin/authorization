@@ -20,7 +20,7 @@ module Authorization
 
         constraints[:_namespace] ||= @constraints[:_namespace].dup
         constraints[:_namespace] << name
-
+        
         sub_permission_set_class =
           if @set.nested_classes.key?(name)
             @set.nested_classes[name]
@@ -31,7 +31,6 @@ module Authorization
 
             klass
           end
-
         sub_permission_set_class.draw(@constraints.merge(constraints), &block)
 
         self

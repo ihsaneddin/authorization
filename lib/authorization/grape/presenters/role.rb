@@ -1,4 +1,3 @@
-require_relative "./base"
 module Authorization
   module Grape
     module Presenters

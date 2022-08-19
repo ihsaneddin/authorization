@@ -1,5 +1,3 @@
-require_relative "../helpers/shared"
-
 module Authorization
   module Grape
     module Services
@@ -13,6 +11,3 @@ module Authorization
     end
   end
 end
-
-require_relative "./roles"
-require_relative "./permissions"

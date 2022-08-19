@@ -31,6 +31,10 @@ module Authorization
           end
         end
 
+        def role_scope query
+          Authorization          
+        end
+
         def unauthorized_action!
           error!({details: "Unauthorized Action"}, 401)
         end
