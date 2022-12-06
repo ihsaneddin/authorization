@@ -7,9 +7,13 @@ module Authorization
 
         fetch_resource_and_collection! do
           model_klass "Authorization::Role"
-          query_scope -> (query) { 
-            query.where("name ilike ?", "%#{params[:search]}%")
-           } 
+          query_scope -> (query) {
+            query = query.where("name ilike ?", "%#{params[:search]}%")
+            if(params[:ids])
+              query = query.where(id: params[:ids])
+            end
+            query
+           }
           attributes do
             optional :name, type: String
             optional :permissions_attributes, type: Hash

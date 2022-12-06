@@ -31,7 +31,7 @@ module Authorization
           end
           context.can @action, subject, @options.merge(additional_options)
         end
-      rescue NameError
+      rescue NameError => err
         raise "You must provide a valid model name."
       end
 

@@ -10,6 +10,13 @@ module Authorization
       include RolesPermissionsMethods
       has_permissions
       has_roles :after_add => :add_permissions_from_role, after_remove: :remove_permissions_from_role
+
+      class_eval %{
+        def self.roles_permissions_is_attached
+          true
+        end
+      }
+
     end
 
   end
